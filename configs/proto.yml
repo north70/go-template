@@ -1,0 +1,4 @@
+proto_dirs:
+  - go-template
+  - external-service
+  # Добавьте сюда другие папки с прото-контрактами

@@ -1,0 +1,13 @@
+app:
+  service_name: "go-template"
+  http_port: 8080
+  grpc_port: 8081
+  log_level: "info"
+  environment: "development"
+  metrics_port: 8082
+database:
+  postgres_dsn: "host=localhost port=5432 user=user password=password dbname=go_template sslmode=disable"
+  redis_addr: "localhost:6379"
+  redis_password: ""
+client:
+  external_service_endpoint: "http://localhost:8083"

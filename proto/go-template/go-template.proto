@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+package go_template;
+
+import "google/api/annotations.proto";
+import "protoc-gen-openapiv2/options/annotations.proto";
+
+option go_package = "github.com/north70/go-template/proto;go_template";
+
+// Foo represents a simple entity
+message Foo {
+  string id = 1;
+  string name = 2;
+  int32 value = 3;
+}
+
+// FooService provides operations on Foo entities
+service FooService {
+  // GetFoo retrieves a Foo by its ID
+  rpc GetFoo(GetFooRequest) returns (Foo) {
+    option (google.api.http) = {
+      get: "/v1/foos/{id}"
+    };
+    option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+      summary: "Get a Foo"
+      description: "Retrieves a Foo entity by its ID"
+      tags: ["foo"]
+    };
+  }
+}
+
+// GetFooRequest is the request message for GetFoo
+message GetFooRequest {
+  string id = 1;
+}
